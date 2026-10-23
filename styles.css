@@ -1,0 +1,56 @@
+:root {
+  color-scheme: light;
+  font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+  color: #213b34;
+  background: #f0f3ef;
+  font-synthesis: none;
+  -webkit-text-size-adjust: 100%;
+}
+* { box-sizing: border-box; }
+body { margin: 0; min-height: 100vh; min-height: 100svh; padding: 40px 16px; display: grid; place-items: center; }
+.calculator { width: 100%; max-width: 460px; padding: 32px; background: #fffefa; border: 1px solid #dce3dc; border-radius: 24px; box-shadow: 0 12px 40px #223c3410; }
+header { margin-bottom: 30px; }
+.app-icon { float: right; border-radius: 12px; }
+.eyebrow { margin: 0 0 12px; font-size: 11px; font-weight: 700; letter-spacing: .18em; color: #567267; }
+h1 { margin: 0; font-size: clamp(20px, 5.5vw, 25px); letter-spacing: -.05em; line-height: 1.4; }
+.intro { margin: 9px 0 0; font-size: 14px; color: #62736b; line-height: 1.6; }
+.field { min-width: 0; }
+label { display: flex; justify-content: space-between; align-items: baseline; gap: 8px; margin-bottom: 9px; font-size: 14px; font-weight: 650; }
+label span { font-size: 12px; font-weight: 500; color: #62736b; }
+input { width: 100%; min-height: 54px; border: 1px solid #cbd6ce; border-radius: 10px; padding: 13px 14px; background: #fff; color: #203a32; font: inherit; font-size: 20px; font-variant-numeric: tabular-nums; }
+input::placeholder { color: #7b8981; font-size: 17px; }
+input:focus-visible, button:focus-visible { outline: 3px solid #267b63; outline-offset: 3px; }
+input[aria-invalid="true"] { border-color: #b34335; }
+.field-error { margin: 5px 0 14px; color: #a43328; font-size: 12px; line-height: 1.5; }
+.field-error:empty { margin-top: 0; }
+.ratios { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.input-help { margin: 2px 0 24px; color: #62736b; font-size: 11px; line-height: 1.7; }
+.input-help p { margin: 2px 0; }
+.result { background: #eaf2ec; border: 1px solid #dbe7dd; border-radius: 14px; padding: 22px 20px 18px; }
+.result-label { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; margin: 0; font-size: 14px; font-weight: 600; }
+.result-label span { padding: 3px 6px; border: 1px solid #c6d8cb; border-radius: 4px; font-size: 10px; font-weight: 400; color: #4d6959; }
+.position { margin: 12px 0; display: flex; flex-wrap: wrap; align-items: baseline; gap: 8px; color: #163c35; }
+#position-amount { min-width: 0; font-size: clamp(26px, 7vw, 38px); line-height: 1.25; font-weight: 720; letter-spacing: -.04em; font-variant-numeric: tabular-nums; overflow-wrap: anywhere; }
+.unit { font-size: 13px; font-weight: 600; }
+.result-message { margin: 0 0 14px; color: #506657; font-size: 12px; line-height: 1.6; }
+.loss-row { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px; padding-top: 15px; border-top: 1px solid #ceddd1; color: #405e4b; font-size: 13px; }
+.loss-row span:last-child { font-weight: 650; overflow-wrap: anywhere; min-width: 0; }
+button { margin-top: 18px; width: 100%; min-height: 52px; border: 0; border-radius: 10px; background: #163c35; color: #fff; font: inherit; font-size: 14px; font-weight: 650; cursor: pointer; }
+button:hover:not(:disabled) { background: #21574c; }
+button:active:not(:disabled) { transform: translateY(1px); }
+button:disabled { background: #e3e8e1; color: #647167; cursor: default; }
+.feedback { min-height: 18px; margin: 8px 0 12px; font-size: 12px; text-align: center; color: #375f4f; }
+footer { font-size: 11px; color: #657268; text-align: center; line-height: 1.7; }
+footer p { margin: 5px 0; }
+.fee-note { font-size: 12px; font-weight: 650; color: #475c4d; }
+.storage-note { margin-top: 15px; }
+#storage-status:empty, #offline-status:empty { display: none; }
+noscript { display: block; margin-top: 16px; color: #a43328; }
+@media (max-width: 380px) {
+  body { padding: 16px 10px; }
+  .calculator { padding: 24px 18px; border-radius: 18px; }
+  .ratios { grid-template-columns: 1fr; gap: 0; }
+  .wide-only { display: none; }
+  .app-icon { width: 36px; height: 36px; }
+}
+@media (max-height: 760px) and (min-width: 381px) { body { padding-top: 20px; padding-bottom: 20px; } }

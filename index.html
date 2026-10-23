@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#163c35">
+  <meta name="description" content="총자산과 손절 거리, 위험 비율로 계산하는 포지션 명목금액. 기기에 저장하고 오프라인에서도 사용하세요.">
+  <title>포지션 사이즈 계산기</title>
+  <link rel="icon" href="./icons/icon-192.png" type="image/png">
+  <link rel="manifest" href="./manifest.webmanifest">
+  <link rel="stylesheet" href="./styles.css">
+  <script type="module" src="./app.js"></script>
+</head>
+<body>
+  <main class="calculator">
+    <header>
+      <img class="app-icon" src="./icons/icon-192.png" alt="" width="44" height="44">
+      <p class="eyebrow">위험 한도 기반 계산</p>
+      <h1>포지션 사이즈 계산기</h1>
+      <p class="intro">허용할 손실부터, 진입 금액을 정하세요.</p>
+    </header>
+
+    <form id="calculator-form" novalidate autocomplete="off">
+      <div class="field">
+        <label for="assets">총자산 <span>USDT</span></label>
+        <input id="assets" name="assets" type="text" inputmode="decimal" placeholder="예: 5300" aria-describedby="assets-error" spellcheck="false">
+        <p class="field-error" id="assets-error"></p>
+      </div>
+      <div class="ratios">
+        <div class="field">
+          <label for="stopDistancePercent">손절 거리 <span>%</span></label>
+          <input id="stopDistancePercent" name="stopDistancePercent" type="text" inputmode="decimal" placeholder="예: 2.6" aria-describedby="distance-help stopDistancePercent-error" spellcheck="false">
+          <p class="field-error" id="stopDistancePercent-error"></p>
+        </div>
+        <div class="field">
+          <label for="riskPercent">위험 비율 <span>%</span></label>
+          <input id="riskPercent" name="riskPercent" type="text" inputmode="decimal" value="1" aria-describedby="risk-help riskPercent-error" spellcheck="false">
+          <p class="field-error" id="riskPercent-error"></p>
+        </div>
+      </div>
+      <div class="input-help">
+        <p id="distance-help">손절 거리: 진입가 대비 손절가까지의 가격 변동률</p>
+        <p id="risk-help">위험 비율: 총자산에서 허용할 손실의 비율</p>
+      </div>
+    </form>
+
+    <section class="result" aria-label="계산 결과" aria-live="polite" aria-atomic="true">
+      <p class="result-label">진입 포지션 금액 <span>명목금액</span></p>
+      <p class="position"><output id="position-amount">—</output><span class="unit">USDT</span></p>
+      <p id="result-message" class="result-message">총자산과 손절 거리를 입력해 주세요.</p>
+      <div class="loss-row"><span>예상 손절 손실</span><span><output id="loss-amount">—</output> USDT</span></div>
+    </section>
+    <button id="copy-button" type="button" disabled>진입 금액 복사</button>
+    <p id="copy-feedback" class="feedback" role="status"></p>
+
+    <footer>
+      <p class="fee-note">수수료·슬리피지 제외</p>
+      <p>체결 가격·펀딩비 등에 따라 실제 손실은 달라질 수 있으며,<br class="wide-only"> 정확한 손실 상한을 보장하지 않습니다.</p>
+      <p class="storage-note">입력값은 이 기기에만 저장됩니다.</p>
+      <p id="storage-status" role="status"></p>
+      <p id="offline-status" role="status"></p>
+    </footer>
+    <noscript>계산기를 사용하려면 브라우저에서 JavaScript를 허용해 주세요.</noscript>
+  </main>
+</body>
+</html>

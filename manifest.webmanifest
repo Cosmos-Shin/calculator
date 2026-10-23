@@ -1,0 +1,16 @@
+{
+  "id": "./",
+  "name": "포지션 사이즈 계산기",
+  "short_name": "포지션 계산기",
+  "lang": "ko",
+  "description": "총자산과 손절 거리, 위험 비율로 진입 포지션의 명목금액을 계산합니다.",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#f0f3ef",
+  "theme_color": "#163c35",
+  "icons": [
+    { "src": "./icons/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any maskable" },
+    { "src": "./icons/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any maskable" }
+  ]
+}
